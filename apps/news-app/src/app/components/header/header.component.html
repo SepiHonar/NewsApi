@@ -1,0 +1,52 @@
+<div class="contain">
+  <mat-form-field appearance="outline">
+    <mat-label>Search Keyword</mat-label>
+    <input
+      matInput
+      [(ngModel)]="sharedService.qItem"
+      (ngModelChange)="sharedService.getNewsData()"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Choose a startDate</mat-label>
+    <input
+      matInput
+      [matDatepicker]="startDatePicker"
+      [(ngModel)]="sharedService.fromDate"
+      (ngModelChange)="setStartDate($event)"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="startDatePicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Choose a endDate</mat-label>
+    <input
+      matInput
+      [matDatepicker]="endDatePicker"
+      [(ngModel)]="sharedService.toDate"
+      (ngModelChange)="setEndDate($event)"
+    />
+    <mat-datepicker-toggle
+      matSuffix
+      [for]="endDatePicker"
+    ></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Author</mat-label>
+    <mat-select
+      (selectionChange)="changeAuthor($event.value)"
+      [(value)]="selected"
+    >
+      <mat-option *ngFor="let author of sharedService.authors" [value]="author">
+        {{ author }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

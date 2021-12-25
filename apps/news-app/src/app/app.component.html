@@ -1,0 +1,7 @@
+<news-header></news-header>
+
+<div class="items">
+  <div *ngFor="let item of sharedService.newsList">
+    <news-item [news]="item"></news-item>
+  </div>
+</div>

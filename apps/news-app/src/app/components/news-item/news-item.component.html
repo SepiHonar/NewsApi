@@ -1,0 +1,16 @@
+<div class="news" *ngIf="news" (click)="goToNews(news.url)">
+  <div class="header">
+    <img [src]="news.urlToImage" alt="" />
+  </div>
+
+  <div class="body">
+    <span class="source">{{ news.source.name }}</span>
+    <h4>{{ news.title }}</h4>
+    <span class="content">{{ news.content | slice: 0:50 }}...</span>
+  </div>
+
+  <div class="footer">
+    <span>{{ news.author }}</span>
+    <span>{{ news.publishedAt | date }}</span>
+  </div>
+</div>
